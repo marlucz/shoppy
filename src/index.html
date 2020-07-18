@@ -1,45 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>MDB Webpack Starter</title>
-    <!-- Favicon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
-    <!-- Google Fonts Roboto -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-    />
-    <!-- Main css file -->
-    <link rel="stylesheet" href="css/index.min.css" />
-    <!-- Custom styles -->
-    <style></style>
-  </head>
 
-  <body>
-    <!-- Start your project here-->
-    <div class="container">
-      <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
-        <div class="text-center">
-          <img
-            src="https://mdbootstrap.com/img/logo/mdb-transparent-250px.png"
-            style="width: 250px; height: 90px;"
-          />
-          <h5 class="pt-3">Thank you for using our product. We're glad you're with us.</h5>
-          <p class="pb-5">MDB Team</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Shoppy - Your private shopping list</title>
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="manifest" href="img/site.webmanifest">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  <!-- Main css file -->
+  <link rel="stylesheet" href="css/index.min.css" />
+  <!-- Custom styles -->
+  <style></style>
+</head>
+
+<body>
+  <!-- Start your project here-->
+  <div class="hero_image"></div>
+
+  <div class="container">
+    <!-- Header Section -->
+    <header class="row d-flex flex-column justify-content-start align-items-start justify-self-start pl-2">
+      <h1 class="pl-0">Shoppy</h1>
+      <p class="pl-0">Your private shopping list manager.</p>
+
+      <!-- Button trigger collapse product form -->
+      <button type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
+        aria-controls="collapse" class="btn btn-custom-red btn-outline btn-rounded ">Add products</button>
+    </header>
+
+
+
+    <!-- Form Section -->
+    <section name="section-form" id="collapse" class="mt-4 collapse">
+
+      <form class="row gy-2 gx-3 align-items-center pt-2">
+        <div class="col-auto">
+          <div class="form-outline">
+            <input type="text" id="item-name" class="form-control" />
+            <label class="form-label" for="item-name">Name</label>
+          </div>
         </div>
-      </div>
-    </div>
-    <!-- End your project here-->
 
-  </body>
-  <!-- Main js file -->
-  <script type="text/javascript" src="js/index.min.js"></script>
-  <!-- Custom scripts -->
-  <script type="text/javascript"></script>
+        <div class="col-auto">
+          <div class="form-outline">
+            <input type="number" id="item-quantity" class="form-control" />
+            <label class="form-label" for="item-quantity">Quantity</label>
+          </div>
+        </div>
+
+        <div class="col-auto">
+          <label class="form-label label-hidden" for="item-unit">Unit</label>
+          <select class="browser-default custom-select" name="unit" id="item-unit">
+            <option selected value="">Unit</option>
+            <option value="piece">Piece</option>
+            <option value="slice">Slice</option>
+            <option value="g">Gram</option>
+            <option value="kg">Kilogram</option>
+            <option value="ml">Mililiter</option>
+            <option value="l">Liter</option>
+          </select>
+        </div>
+
+        <div class="col-auto">
+          <label class="form-label label-hidden" for="item-category">Category</label>
+          <select class="browser-default custom-select" name="category" id="item-category">
+            <option selected value="">Category</option>
+            <option value="fruits">Fruit</option>
+            <option value="vegetables">Vegetable</option>
+            <option value="meat">Meat</option>
+            <option value="fish">Fish</option>
+            <option value="bread">Bread</option>
+            <option value="dairy">Dairy</option>
+            <option value="drinks">Drink</option>
+            <option value="pharmacy">Pharmacy</option>
+            <option value="sanitary">Sanitary</option>
+          </select>
+        </div>
+
+        <div class="col-auto">
+          <button type="submit" class="btn btn-custom-green btn-outline btn-rounded pl-5 pr-5">Add</button>
+        </div>
+      </form>
+
+    </section>
+
+    <div class="d-flex flex-column justify-content-start align-items-start">
+
+
+      <!-- Main Section -->
+
+
+      <main id="main" class="mt-5 mb-5 justify-self-start">
+
+        <!-- Categories Selection Section - First Visible-->
+        <section id="categories">
+          <ul class="row">
+            <li class="col-md-4 mb-3">
+              <a class="card card-body p-3">
+                <div class="d-flex w-100 flex-column justify-content-between align-items-center">
+                  <img src="img/icons/vegetables.svg" class="card-img-custom card-img-top pb-3 " alt="vegetable" />
+                  <h5 class="card-title mb-1">Vegetables</h5>
+                  <small>5 items</small>
+                </div>
+              </a>
+            </li>
+            <li class="col-md-4 mb-3">
+              <a class="card card-body p-3">
+                <div class="d-flex w-100 flex-column justify-content-between align-items-center">
+                  <img src="img/icons/fruits.svg" class="card-img-custom card-img-top pb-3 " alt="vegetable" />
+                  <h5 class="card-title mb-1">Fruits</h5>
+                  <small>2 items</small>
+                </div>
+              </a>
+            </li>
+            <li class="col-md-4 mb-3">
+              <a class="card card-body p-3">
+                <div class="d-flex w-100 flex-column justify-content-between align-items-center">
+                  <img src="img/icons/meat.svg" class="card-img-custom card-img-top pb-3 " alt="vegetable" />
+                  <h5 class="card-title mb-1">Meat</h5>
+                  <small>2 items</small>
+                </div>
+              </a>
+            </li>
+            <li class="col-md-4 mb-3">
+              <a class="card card-body p-3">
+                <div class="d-flex w-100 flex-column justify-content-between align-items-center">
+                  <img src="img/icons/fish.svg" class="card-img-custom card-img-top pb-3 " alt="vegetable" />
+                  <h5 class="card-title mb-1">Fishes</h5>
+                  <small>2 items</small>
+                </div>
+              </a>
+            </li>
+            <li class="col-md-4 mb-3">
+              <a class="card card-body p-3">
+                <div class="d-flex w-100 flex-column justify-content-between align-items-center">
+                  <img src="img/icons/bread.svg" class="card-img-custom card-img-top pb-3 " alt="vegetable" />
+                  <h5 class="card-title mb-1">Bread</h5>
+                  <small>2 items</small>
+                </div>
+              </a>
+            </li>
+            <li class="col-md-4 mb-3">
+              <a class="card card-body p-3">
+                <div class="d-flex w-100 flex-column justify-content-between align-items-center">
+                  <img src="img/icons/dairy.svg" class="card-img-custom card-img-top pb-3 " alt="vegetable" />
+                  <h5 class="card-title mb-1">Dairy</h5>
+                  <small>2 items</small>
+                </div>
+              </a>
+            </li>
+            <li class="col-md-4 mb-3">
+              <a class="card card-body p-3">
+                <div class="d-flex w-100 flex-column justify-content-between align-items-center">
+                  <img src="img/icons/drinks.svg" class="card-img-custom card-img-top pb-3 " alt="vegetable" />
+                  <h5 class="card-title mb-1">Drinks</h5>
+                  <small>2 items</small>
+                </div>
+              </a>
+            </li>
+            <li class="col-md-4 mb-3">
+              <a class="card card-body p-3">
+                <div class="d-flex w-100 flex-column justify-content-between align-items-center">
+                  <img src="img/icons/pharmacy.svg" class="card-img-custom card-img-top pb-3 " alt="vegetable" />
+                  <h5 class="card-title mb-1">Pharmacy</h5>
+                  <small>2 items</small>
+                </div>
+              </a>
+            </li>
+            <li class="col-md-4 mb-3">
+              <a class="card card-body p-3">
+                <div class="d-flex w-100 flex-column justify-content-between align-items-center">
+                  <img src="img/icons/sanitary.svg" class="card-img-custom card-img-top pb-3 " alt="vegetable" />
+                  <h5 class="card-title mb-1">Sanitary</h5>
+                  <small>2 items</small>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Products in category Section - Visible after section enter-->
+        <section id="products">
+          <h2>Vegetables</h2>
+          <p>3 items</p>
+          <ul class="list-group">
+            <li class="card d-flex flex-row justify-content-between align-items-center mb-2 p-2">
+              Carrot 2 pieces
+              <div>
+                <button type="button" class="btn btn-custom-green btn-outline btn-floating"><i
+                    class="fas fa-pen"></i></button>
+                <button type="button" class="btn btn-custom-red btn-outline btn-floating"><i
+                    class="far fa-trash-alt"></i></button>
+              </div>
+            </li>
+            <li class="card d-flex flex-row justify-content-between align-items-center mb-2 p-2">
+              Carrot 2 pieces
+              <div>
+                <button type="button" class="btn btn-custom-green btn-outline btn-floating"><i
+                    class="fas fa-pen"></i></button>
+                <button type="button" class="btn btn-custom-red btn-outline btn-floating"><i
+                    class="far fa-trash-alt"></i></button>
+              </div>
+            </li>
+            <li class="card d-flex flex-row justify-content-between align-items-center mb-2 p-2">
+              Carrot 2 pieces
+              <div>
+                <button type="button" class="btn btn-custom-green btn-outline btn-floating"><i
+                    class="fas fa-pen"></i></button>
+                <button type="button" class="btn btn-custom-red btn-outline btn-floating"><i
+                    class="far fa-trash-alt"></i></button>
+              </div>
+            </li>
+            <li class="card d-flex flex-row justify-content-between align-items-center mb-2 p-2">
+              Carrot 2 pieces
+              <div>
+                <button type="button" class="btn btn-custom-green btn-outline btn-floating"><i
+                    class="fas fa-pen"></i></button>
+                <button type="button" class="btn btn-custom-red btn-outline btn-floating"><i
+                    class="far fa-trash-alt"></i></button>
+              </div>
+            </li>
+            <li class="card d-flex flex-row justify-content-between align-items-center mb-2 p-2">
+              Carrot 2 pieces
+              <div>
+                <button type="button" class="btn btn-custom-green btn-outline btn-floating"><i
+                    class="fas fa-pen"></i></button>
+                <button type="button" class="btn btn-custom-red btn-outline btn-floating"><i
+                    class="far fa-trash-alt"></i></button>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+
+
+      </main>
+
+
+    </div>
+  </div>
+  <!-- End your project here-->
+
+</body>
+<!-- Main js file -->
+<script type="text/javascript" src="js/index.min.js"></script>
+<!-- Custom scripts -->
+<script type="text/javascript"></script>
 
 </html>
