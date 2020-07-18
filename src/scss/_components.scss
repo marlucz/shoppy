@@ -42,10 +42,12 @@
 
 .custom-select {
   background-color: transparent;
-  padding: 0.38rem 0.75rem;
+  padding: 0.33rem 0.75rem;
   color: $mdb-gray;
   border: 1px solid #bdbdbd;
   border-radius: 0.25rem;
+  min-height: auto;
+  line-height: 1.5;
 }
 
 .label-hidden {
@@ -57,6 +59,10 @@
   overflow: hidden;
   padding: 0;
   position: absolute;
+}
+
+.was-validated select.form-control:invalid {
+  color: #f93154;
 }
 
 .card-img-custom {

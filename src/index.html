@@ -41,24 +41,30 @@
     <!-- Form Section -->
     <section name="section-form" id="collapse" class="mt-4 collapse">
 
-      <form class="row gy-2 gx-3 align-items-center pt-2">
-        <div class="col-auto">
+      <form class="row gy-2 gx-3 align-items-center pt-2 needs-validation" novalidate>
+        <div class="col-md-3">
           <div class="form-outline">
-            <input type="text" id="item-name" class="form-control" />
+            <input type="text" id="item-name" class="form-control" required />
             <label class="form-label" for="item-name">Name</label>
+            <div class="invalid-feedback">
+              Please provide product name
+            </div>
           </div>
         </div>
 
-        <div class="col-auto">
+        <div class="col-md-3">
           <div class="form-outline">
-            <input type="number" id="item-quantity" class="form-control" />
+            <input type="number" id="item-quantity" class="form-control" required />
             <label class="form-label" for="item-quantity">Quantity</label>
+            <div class="invalid-feedback">
+              Please provide quantity
+            </div>
           </div>
         </div>
 
-        <div class="col-auto">
+        <div class="col-md-3">
           <label class="form-label label-hidden" for="item-unit">Unit</label>
-          <select class="browser-default custom-select" name="unit" id="item-unit">
+          <select class=" browser-default form-control custom-select" name="unit" id="item-unit" required>
             <option selected value="">Unit</option>
             <option value="piece">Piece</option>
             <option value="slice">Slice</option>
@@ -67,11 +73,14 @@
             <option value="ml">Mililiter</option>
             <option value="l">Liter</option>
           </select>
+          <div class="invalid-feedback">
+            Please provide unit
+          </div>
         </div>
 
-        <div class="col-auto">
+        <div class="col-md-3">
           <label class="form-label label-hidden" for="item-category">Category</label>
-          <select class="browser-default custom-select" name="category" id="item-category">
+          <select class="browser-default custom-select form-control" name="category" id="item-category" required>
             <option selected value="">Category</option>
             <option value="fruits">Fruit</option>
             <option value="vegetables">Vegetable</option>
@@ -83,10 +92,15 @@
             <option value="pharmacy">Pharmacy</option>
             <option value="sanitary">Sanitary</option>
           </select>
+          <div class="invalid-feedback">
+            Please provide category
+          </div>
         </div>
 
         <div class="col-auto">
-          <button type="submit" class="btn btn-custom-green btn-outline btn-rounded pl-5 pr-5">Add</button>
+          <button type="submit" id="submit" class="btn btn-custom-green btn-outline btn-rounded pl-4 pr-4">Add</button>
+          <button type="submit" id="cancel" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
+            aria-controls="collapse" class="btn btn-custom-red btn-outline btn-rounded ">Cancel</button>
         </div>
       </form>
 
