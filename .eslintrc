@@ -21,7 +21,8 @@
     "no-template-curly-in-string": "error",
     "valid-jsdoc": "error",
     "accessor-pairs": "error",
-    "array-callback-return": "error",
+    // disable for printView file
+    "array-callback-return": "off",
     "block-scoped-var": "error",
     "class-methods-use-this": "off",
     "complexity": "off",
@@ -158,12 +159,8 @@
     "max-statements": "off",
     "max-statements-per-line": "error",
     "multiline-ternary": "off",
-    "new-cap": [
-      "error",
-      {
-        "capIsNewExceptionPattern": "$.*"
-      }
-    ],
+    // disable for printView file
+    "new-cap": "off",
     "new-parens": "error",
     "newline-after-var": "off",
     "newline-before-return": "off",

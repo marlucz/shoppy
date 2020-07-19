@@ -40,6 +40,10 @@ export const resetView = () => {
   }
 };
 
+export const getState = () => {
+  return state;
+};
+
 const setupListeners = () => {
   selectors.productForm.addEventListener('submit', controlFormSubmit);
   selectors.header.addEventListener('click', resetView);
@@ -64,10 +68,6 @@ const controlFormSubmit = (e) => {
   clearInputs();
 
   resetView();
-};
-
-export const getState = () => {
-  return state;
 };
 
 selectors.printBtn.addEventListener('click', () => {

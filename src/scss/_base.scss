@@ -34,3 +34,18 @@ a:hover {
   color: inherit;
   cursor: pointer;
 }
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+h2,
+h5.card-title,
+td {
+  text-transform: capitalize;
+}
+
+h1 {
+  cursor: pointer;
+}

@@ -1,0 +1,30 @@
+.btn-custom-red {
+  max-width: 200px;
+  color: $light-orange;
+  border: 2px solid $light-orange;
+
+  &:hover {
+    color: $light-orange;
+  }
+}
+
+.btn-custom-green {
+  color: $light-green;
+  border: 2px solid $light-green;
+
+  &:hover {
+    color: $light-green;
+  }
+}
+
+.btn-custom-print {
+  width: 30%;
+  max-width: 100px;
+  margin-left: 10px;
+  color: $light-orange;
+  border: 2px solid $light-orange;
+
+  &:hover {
+    color: $light-orange;
+  }
+}
