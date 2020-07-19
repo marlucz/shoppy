@@ -9,6 +9,8 @@ import FormController from './ctrls/formController';
 import List from './ctrls/listController';
 
 import { clearCategories, renderCategories } from './views/categoryView';
+import { clearProducts } from './views/productView';
+import { clearInputs } from './views/formView';
 
 export default {
   mdb,
@@ -18,20 +20,28 @@ export default {
 const state = {};
 
 window.addEventListener('load', () => {
-  formValidation();
-  setupListeners();
-
   // setup initial data from the localStorage
   state.list = new List();
   state.list.readStorage();
 
+  resetView();
+
+  formValidation();
+  setupListeners();
+});
+
+export const resetView = () => {
+  clearCategories();
+  clearProducts();
+
   if (state.list.items) {
     state.list.items.forEach((item) => renderCategories(item));
   }
-});
+};
 
 const setupListeners = () => {
   selectors.productForm.addEventListener('submit', controlFormSubmit);
+  selectors.header.addEventListener('click', resetView);
 };
 
 const controlFormSubmit = (e) => {
@@ -50,10 +60,7 @@ const controlFormSubmit = (e) => {
   // add product to category and persist it in the localStorage
   state.list.addItem(product, category);
   state.list.persistData();
-  newForm.clearInputs();
+  clearInputs();
 
-  // prepare ui to render categories
-  clearCategories();
-  // and render them
-  items.forEach((item) => renderCategories(item));
+  resetView();
 };
