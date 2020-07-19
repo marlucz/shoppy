@@ -11,6 +11,7 @@ import List from './ctrls/listController';
 import { clearCategories, renderCategories } from './views/categoryView';
 import { clearProducts } from './views/productView';
 import { clearInputs } from './views/formView';
+import { printList } from './views/printView';
 
 export default {
   mdb,
@@ -68,3 +69,7 @@ const controlFormSubmit = (e) => {
 export const getState = () => {
   return state;
 };
+
+selectors.printBtn.addEventListener('click', () => {
+  printList(state.list.items);
+});

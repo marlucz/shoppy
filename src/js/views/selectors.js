@@ -8,4 +8,6 @@ export const selectors = {
   inputCategory: document.getElementById('item-category'),
   categorySection: document.getElementById('categories'),
   productsSection: document.getElementById('products'),
+  divPrint: document.getElementById('table-print'),
+  printBtn: document.getElementById('print'),
 };

@@ -22,6 +22,7 @@
 </head>
 
 <body>
+
   <!-- Start your project here-->
   <div class="hero_image"></div>
 
@@ -32,9 +33,13 @@
       <h1 class="pl-0" id="header">Shoppy</h1>
       <p class="pl-0">Your private shopping list manager.</p>
 
-      <!-- Button trigger collapse product form -->
-      <button type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
-        aria-controls="collapse" class="btn btn-custom-red btn-outline btn-rounded ">Add products</button>
+      <div class="row d-flex justify-content-start align-items-start justify-self-start ">
+        <!-- Button trigger collapse product form -->
+        <button type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
+          aria-controls="collapse" class="btn btn-custom-red btn-outline btn-rounded ">Add products</button>
+        <button id="print" class="btn btn-custom-print btn-outline btn-rounded" title="Print your list"><i
+            class="fas fa-print"></i></button>
+      </div>
     </header>
 
 
@@ -122,9 +127,10 @@
         <section id="products"></section>
       </main>
 
-
     </div>
+
   </div>
+  <div id="table-print"></div>
   <!-- End your project here-->
 
 </body>
@@ -132,5 +138,8 @@
 <script type="text/javascript" src="js/index.min.js"></script>
 <!-- Custom scripts -->
 <script type="text/javascript"></script>
+<!-- Package generating pdf - jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+  integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
 
 </html>

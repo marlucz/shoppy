@@ -17,6 +17,18 @@
   }
 }
 
+.btn-custom-print {
+  width: 30%;
+  max-width: 100px;
+  margin-left: 10px;
+  color: $light-orange;
+  border: 2px solid $light-orange;
+
+  &:hover {
+    color: $light-orange;
+  }
+}
+
 .hero_image {
   position: fixed;
   top: 0;
@@ -75,10 +87,15 @@ ul {
 }
 
 h2,
-h5.card-title {
+h5.card-title,
+td {
   text-transform: capitalize;
 }
 
 h1 {
   cursor: pointer;
+}
+
+#table-print {
+  display: none;
 }
