@@ -1,4 +1,5 @@
 export const selectors = {
+  collapse: document.getElementById('collapse'),
   productForm: document.getElementById('productForm'),
   inputName: document.getElementById('item-name'),
   inputQuantity: document.getElementById('item-quantity'),

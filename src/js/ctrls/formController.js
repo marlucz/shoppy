@@ -26,6 +26,7 @@ class FormController {
     selectors.inputQuantity.value = '';
     selectors.inputUnit.value = '';
     selectors.inputCategory.value = '';
+    selectors.collapse.classList.remove('show');
   };
 }
 
