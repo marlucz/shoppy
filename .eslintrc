@@ -135,6 +135,7 @@
     "id-blacklist": "error",
     "id-length": "off",
     "id-match": "error",
+    "import/no-cycle": "off",
     "import/prefer-default-export": "off",
     "indent": [
       "error",

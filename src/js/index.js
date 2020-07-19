@@ -64,3 +64,7 @@ const controlFormSubmit = (e) => {
 
   resetView();
 };
+
+export const getState = () => {
+  return state;
+};

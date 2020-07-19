@@ -3,13 +3,31 @@ class List {
     this.items = [];
   }
 
-  addItem = (product, category) => {
-    const categoryIndex = this.items.findIndex((item) => item.name === category);
+  addItem = (product, categoryName) => {
+    const categoryIndex = this.items.findIndex((item) => item.name === categoryName);
     this.items[categoryIndex].products.push(product);
   };
 
-  addCategory = (category) => {
-    this.items.push(category);
+  getCategoryLength = (categoryName) => {
+    const categoryIndex = this.items.findIndex((item) => item.name === categoryName);
+    return this.items[categoryIndex].products.length;
+  };
+
+  addCategory = (categoryName) => {
+    this.items.push(categoryName);
+  };
+
+  deleteItem = (productName, categoryName) => {
+    const categoryIndex = this.items.findIndex((item) => item.name === categoryName);
+    const productIndex = this.items[categoryIndex].products.findIndex(
+      (product) => product.name === productName
+    );
+
+    if (productIndex > -1) {
+      this.items[categoryIndex].products.splice(productIndex, 1);
+    }
+
+    this.persistData();
   };
 
   persistData = () => {

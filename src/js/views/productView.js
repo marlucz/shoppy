@@ -1,11 +1,32 @@
 import { selectors } from './selectors';
-import { resetView } from '../index';
+import { resetView, getState } from '../index';
 
 export const clearProducts = () => {
   selectors.productsSection.innerHTML = '';
 };
 
-const renderProduct = ({ name, quantity, unit }) => {
+export const removeProductFromView = (li) => {
+  const ul = li.parentNode;
+  if (ul) ul.removeChild(li);
+};
+
+const recountItems = (categoryName) => {
+  const state = getState();
+  const itemsCount = state.list.getCategoryLength(categoryName);
+
+  if (itemsCount === 0) {
+    resetView();
+    return;
+  }
+
+  document.getElementById('item-count').textContent = `${itemsCount} ${
+    itemsCount > 1 ? 'items' : 'item'
+  }`;
+};
+
+const renderProduct = (product, categoryName) => {
+  const { name, quantity, unit } = product;
+
   const li = document.createElement('li');
   li.className = 'card d-flex flex-row justify-content-between align-items-center mb-2 p-2';
   li.innerHTML = `${name} - ${quantity} ${unit}`;
@@ -13,11 +34,18 @@ const renderProduct = ({ name, quantity, unit }) => {
   const deleteBtn = document.createElement('button');
   deleteBtn.setAttribute('type', 'button');
   deleteBtn.className = 'btn btn-custom-red btn-outline btn-floating';
-  deleteBtn.innerHTML = `<i class="far fa-trash-alt"></i>`;
+  // eslint-disable-next-line quotes
+  deleteBtn.innerHTML = `<i class='far fa-trash-alt'></i>`;
 
   li.appendChild(deleteBtn);
 
-  deleteBtn.addEventListener('click', () => console.log(name));
+  deleteBtn.addEventListener('click', () => {
+    const state = getState();
+    state.list.deleteItem(name, categoryName);
+    removeProductFromView(li);
+    recountItems(categoryName);
+    // resetView();
+  });
 
   return li;
 };
@@ -30,7 +58,7 @@ export const renderProducts = (categoryName, productsList) => {
     // create header for products list
     const headerMarkup = `
         <h2>${categoryName}</h2>
-        <span>${itemsCount} ${itemsCount > 1 ? 'items' : 'item'}</span>
+        <span id="item-count">${itemsCount} ${itemsCount > 1 ? 'items' : 'item'}</span>
     `;
 
     // create list itself
@@ -39,6 +67,7 @@ export const renderProducts = (categoryName, productsList) => {
 
     //
     const backBtn = document.createElement('a');
+    // eslint-disable-next-line quotes
     backBtn.textContent = `← Back`;
     backBtn.addEventListener('click', resetView);
 
@@ -51,7 +80,7 @@ export const renderProducts = (categoryName, productsList) => {
   const ul = document.querySelector('.list-products');
 
   productsList.forEach((product) => {
-    const productItem = renderProduct(product);
+    const productItem = renderProduct(product, categoryName);
     ul.appendChild(productItem);
   });
 };
